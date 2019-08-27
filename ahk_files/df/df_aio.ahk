@@ -27,7 +27,7 @@ Upon success the application will exit immediately.
 This is to prevent having multiple scripts running and
 is a failsafe to #SingleInstance.
 */
-Input, UserInput, V, {esc}, brg,esc1,esc2,esc3,mw,omal,cb,pre,kralk,bb
+Input, UserInput, V, {esc}, brg,esc1,esc2,esc3,cu,pre,kralk,bb
 /*
 Series of if and if-else statements that execute
 the commands for each corresponding keyword.
@@ -66,52 +66,46 @@ if (UserInput = "brg"){
 }
 
 else if (UserInput = "esc1"){
-  Send,{Backspace 4}
-  SetKeyDelay, 25
-  ;Exit chat
-  Send,{Enter}
-
-  SendRaw,[&BN4LAAA=]
-  Send,{Enter}
-  ;Full second delay. Feels less rushed.
-  Sleep, 1000
-  SetKeyDelay, 0
-  Send,{Enter}
-  Send,Escort time{!} Please only escort the group on my tag{!} We escort these one at a time so we can get the loot for all three escorts{!}
-  Send,{Enter}
-  Send,{Enter}
-  Send,We start with Mist Warden.
-  send,{Enter}
+  Send {Backspace 4}
+  ; Exit chat
+  SquadBroadcast()
+  Send Mist Warden escort starting.{Enter}
+  MssgToSquadChat()
+  SendRaw [&BN4LAAA=]
+  Send {Enter}
+  MssgToSquadChat()
+  Send Escort time{!} Please only escort the group on my tag{!} We escort these one at a time so we can get the loot for all three escorts{!}{Enter}
+  ExitApp
 }
 else if (UserInput = "esc2"){
-  Send,{Backspace 4}
-  Send,{Enter}
-	Sleep, 50
-  SetKeyDelay, 25
-  Send,{RShift Down}{Enter}{RShift Up}
-  Sleep, 50
-  Send,Beetle up again{!}
-  Send,{Enter}
-  Sleep, 1000
-  SetKeyDelay, 50
-  Send,{/}squad{Space}
+  Send {Backspace 4}
+  SquadBroadcast()
+  Send Beetle up again{!}{Enter}
+  MssgToSquadChat()
   SendRaw,[&BN4LAAA=]
-  Send,{Enter}
-  Sleep, 1000
-  Send,{Enter}
-  SetKeyDelay, 0
-  Send,Next escort is Crystal Bloom. Then we catch Omal when champ is dead.
-	Send,{Enter}
+  Send {Enter}
+  MssgToSquadChat()
+  Send Next escort is Crystal Bloom. Then we catch Omal when champ is dead.{Enter}
+  ExitApp
 }
 else if (UserInput = "esc3"){
   Send,{Backspace 4}
-  SetKeyDelay, 50
-  Send,{Enter}
-  Send,{/}squad{Space}
-  SetKeyDelay, 0
-  Send,Follow me to tag the Omal escort.
-  Send,{Enter}
-  Send,Next phase is camp upgrades.
-	Send,{Enter}
+  MssgToSquadChat()
+  Send Follow me to tag the Omal escort.{Enter}
+  MssgToSquadChat()
+  Send Next phase is camp upgrades.{Enter}
+}
+else if(UserInput = "cu"){
+  Send {Backspace 2}
+  SquadBroadcast()
+  Send Camp Upgrade Events{Enter}
+  Sleep 1000
+  MssgToSquadChat()
+  Send Talk with scouts {@} each camp to find events. Call out mender escorts when they are up.{Enter}
+  Send {Enter}
+  Input, CULoc, V, {esc}, mw,omal,cb
+  if (CULoc = "mw"){
+    Send Test
+  }
 }
 ExitApp
