@@ -106,7 +106,7 @@ else if(UserInput = "cu"){
   Input, CULoc, V, {esc}, mw,omal,cb
   if (CULoc = "mw"){
     Send {Backspace 2}
-
+    
   }
 }
 ExitApp

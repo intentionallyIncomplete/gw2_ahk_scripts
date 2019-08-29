@@ -1,35 +1,41 @@
-/*Allow only once instance, force reload if one already exists in memory*/
+;Allow only once instance, force reload if one already exists in memory
 #SingleInstance Force
 #NoEnv
 /*
-* Welcome to the Commanding Made Easy script guide
-* These are a few scripts I put together to make my life easier.
-* They are very basic and with just a bit of looking through the
-* documentation can be edited by anyone.
-*
-* Author: Semita Ut Pacis
-* Version: 8.25.2019
-* Map: The Silverwastes
+; Welcome to the Commanding Made Easy script guide
+; These are a few scripts I put together to make my life easier.
+; They are very basic and with just a bit of looking through the
+; documentation can be edited by anyone.
+;
+; Author: Semita Ut Pacis
+; Version: 8.25.2019
+; Map: The Silverwastes
 */
 
 /*
-* Sends the enter key press event to active window.
-* Helps with reducing hand movements.
+; Sends the enter key press event to active window.
+; Helps with reducing hand movements.
 */
 Send,{Enter}
-/*AHK begins to listen for user input.*/
+
+;AHK begins to listen for user input.
 SendMode Input
 /*
-* Input [OutputVar, options, EndKey, Matchlist]
-* Sets the value for each component of Input.
-* Upon success the application will exit immediately.
-* This is to prevent having multiple scripts running and is
-* a failsafe to #SingleInstance.
+; Input [OutputVar, options, EndKey, Matchlist]
+; Sets the value for each component of Input.
+; Upon success the application will exit immediately.
+; This is to prevent having multiple scripts running and is
+; a failsafe to #SingleInstance.
 */
 Input, UserInput, V, {esc}, me,rcap,fh,g1,g2,g3,br,vw,ct
+
 /*
-* Series of if and if-else statements that execute
-* the commands for each corresponding keyword.
+; Functions to perform repeated tasks
+*/
+CharsToRemove = 0
+/*
+; Series of if and if-else statements that execute
+; the commands for each corresponding keyword.
 */
 if (UserInput = "me"){
   Send,{Backspace 2}
