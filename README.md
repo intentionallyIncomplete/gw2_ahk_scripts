@@ -16,7 +16,18 @@ These are some very basic AutoHotKey scripts I wrote to make my life easier when
 #### Key Terms by Map
 
 - **The Silverwastes**
-  - **brg** : Initial bridge event. Use when map is resetting.
-  - **esc1/2/3** : Escorts 1 (Mistwarden), 2 (Olmakhan), and 3 (Crystal Bloom)
+  - **me** : Short description of who I am with a little hello at the beginning. Can be adapted for you of course.
+  - **rcap** : [Recapturing] First rotation info. Use this when the reset phase is ending and it's time for the first time around.
+  - **fh** : [Foothold Phase] After recapture is done. I usually use this just as Amber is recapped.
+  - **g1/2/3** : General Info 1,2,3. Just general reminders about what to look for. Helpful in case of new people that may not be aware of what to remember as they follow.
+  - **br** : [Breach Phase] Quick message about the basic setup for breach phase champs.
+  - **vw** : [Vinewrath] Basic lane setup announcement. Could be expanded into lots more announcements about achivements for lanes and other stuff people may want to know.
+  - **bmechs** : [Boss Mechanics] This key term contains a nested Input statement that will allow you to select which boss mechanic you want to put into chat. *See key terms below*
+    - **bk** : [Bee Keeper] Bee Keeper mechanics. I like to use this just as lane opening announcement from the meta happens.
+    - **mang** : [Mangler] Mordrem Mangler mechanics. Used at the same time as the lane opening announcement happens.
+    - **dw** : [Dark Wing] Teragriff Darkwing mechanics. Same as the other two in regards to timing this chat message.
+  - **ct** : Makes a squadbroadcast. Choo! Choo! Chest Train on me! Grab your keys and lets get these shinies!
 
 - **Dragonfall**
+- **brg** : Initial bridge event. Use when map is resetting.
+- **esc1/2/3** : Escorts 1 (Mistwarden), 2 (Olmakhan), and 3 (Crystal Bloom)
