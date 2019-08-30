@@ -16,7 +16,7 @@
 ; Sends the enter key press event to active window.
 ; Helps with reducing hand movements.
 */
-Send,{Enter}
+Send {Enter}
 
 ;AHK begins to listen for user input.
 SendMode Input
