@@ -2,7 +2,7 @@
 
 These are some very basic AutoHotKey scripts I wrote to make my life easier when commanding Dragonfall or The Silverwastes. I don't expect these to be useful to very many people but if you think you might want to use them I'm more than happy to take advice on improvements or commits from others.
 
-*PS. - I like to game with others and do metas, gold farming, ect - so find me on Discord (Ian#3843) and we can game together :)*
+I'm also working on some more for Auric Basin and other big meta maps. If you want to connect with me I'm always open to getting some feedback and working on making these better. I obviously love to farm gold and do metas, so hit me up in Discord (Ian#3843) and we can do them together!
 
 ## Instructions for use
 - Set game to windowed mode
@@ -29,5 +29,8 @@ These are some very basic AutoHotKey scripts I wrote to make my life easier when
   - **ct** : Makes a squadbroadcast. Choo! Choo! Chest Train on me! Grab your keys and lets get these shinies!
 
 - **Dragonfall**
-- **brg** : Initial bridge event. Use when map is resetting.
-- **esc1/2/3** : Escorts 1 (Mistwarden), 2 (Olmakhan), and 3 (Crystal Bloom)
+- **brg** : Makes squad broadcast. Initial brige events that happen immediately after the map is reset.
+- **esc1/2/3** : Escorts 1 (Mistwarden), 2 (Olmakhan), and 3 (Crystal Bloom).
+  - I generally use `esc1` as soon I see the NPC get in position and the little dialogue marker appears. It shows the NPC moving on the map while this happens so it's easy to see.
+  - `esc2` can be used around the time the champ is less than 10% health at the Mist Warden escort. Once the Crystal Bloom champ is about 10%  the `esc3` announcement can be used.
+- 
