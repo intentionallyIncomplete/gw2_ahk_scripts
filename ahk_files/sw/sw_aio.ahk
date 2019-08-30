@@ -27,7 +27,7 @@ SendMode Input
 ; This is to prevent having multiple scripts running and is
 ; a failsafe to #SingleInstance.
 */
-Input, UserInput, V, {esc}, me,rcap,fh,g1,g2,g3,br,vw,ct
+Input, UserInput, V, {esc}, me,rcap,fh,g1,g2,g3,br,vw,bmechs,ct
 
 /*
 ; Some variables to help with modulating this script
@@ -46,7 +46,6 @@ SetupSquadChat(CharsToRemove){
 }
 
 MssgToSquadChat(copyPasta){
-  MsgBox % copyPasta
   Send %copyPasta%
   Send {Enter}
 }
@@ -111,21 +110,22 @@ else if(UserInput = "vw"){
   Send {RShift Down}{Enter}{RShift Up}
   Sleep 50
   SetKeyDelay 0
-  Send 3 people on ammo at all times | Protect siege carrier{Enter}
+  Send 3 people on ammo{Enter}
   ExitApp
 }
 ; Nested input for boss mechanics during lane fights.
-else if(UserInput = "bmech"){
+else if(UserInput = "bmechs"){
+  Send {Backspace 6}
   Input, BMechSelection, V, {esc}, bk,mang,dw
   if (BMechSelection = "bk"){
     SetupSquadChat(2)
-    leMssg := "[South Lane][Bee Keeper] - stand near bee swarms to attract them then walk towards the honeycomb to build them. When Troll goes to front, stand in white square behind the Honeycomb."
+    leMssg := "[South Lane][Bee Keeper] - Stand near bee swarms to attract them then walk towards the honeycomb to build them. When Troll goes to front, stand in white square behind the Honeycomb."
     MssgToSquadChat(leMssg)
     ExitApp
   }
   else if(BMechSelection = "mang"){
     SetupSquadChat(4)
-    leMssg := "[Mid Lane][Mangler] - Thrasher. Use reflects when it spins, kill pustules to reduce damage from poison floor. When it moves to the front, stand in white cone."
+    leMssg := "[Mid Lane][Mangler] - Thrasher. Use reflects when it spins, kill pustules to grant buffs that reduce damage from poison. When it moves to the front, stand in white cone (stack on me)."
     MssgToSquadChat(leMssg)
     ExitApp
   }
@@ -135,21 +135,22 @@ else if(UserInput = "bmech"){
     MssgToSquadChat(leMssg)
     ExitApp
   }
+  ExitApp
 }
 else if(UserInput = "ct"){
   Send {Backspace 2}
-  SetKeyDelay, 25
+  SetKeyDelay 25
   Send {Enter}
   Sleep 50
   Send {RShift Down}{Enter}{RShift Up}
   Sleep 50
   SetKeyDelay 0
-  Send Choo Choo{!} All aboard the Chest Train!
-  Send {Enter}
-  SetupSquadChat(0)
-  SendRaw [&AgFiIgAA]
+  Send Choo Choo{!} All aboard the Chest Train!{Enter}
+  SetKeyDelay 250
+  Send {/}
+  Sleep 50
+  Send squad{Space}
   leMssg := "Chest train starts now. I mark them as I see them. If you have shovels, I appreciate diggers. Move to Red @ 1min for new rotation. All markers removed once rotation starts."
   MssgToSquadChat(leMssg)
   ExitApp
 }
-ExitApp
