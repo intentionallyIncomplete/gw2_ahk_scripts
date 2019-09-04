@@ -56,4 +56,10 @@ I'm also working on some more for Auric Basin and other big meta maps. If you wa
     - **emb** : Ember collection event.
     - **assem** : Destroying *Branded Assemblers* with embers gathered at camp.
     - **turr** : Destroying*Branded Turrets* with embers gathered at the camp and around the camp.
-    -
+    - **bullesc** : Supply pack bull of Soulbinders that goes from CB to Olmakhan.
+    - **champ** : Champion Abyssal.
+    - **cull** : Cull event.
+    - **brg** : Bridge event just South of the camp. This is important to finish because 2 other events depend on this bridge being up.
+- **pre** : announcement to squad about changing phase of the meta into the pre-kralk phase. Can be modified for how you like to run your squad.
+- **kralk** : Sends message to squad on what percentage to hold the bosses at.
+- **bb** : Bonus boss round announcement. Very simple and short just to let people know to continue following for more loot.
