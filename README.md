@@ -33,4 +33,27 @@ I'm also working on some more for Auric Basin and other big meta maps. If you wa
 - **esc1/2/3** : Escorts 1 (Mistwarden), 2 (Olmakhan), and 3 (Crystal Bloom).
   - I generally use `esc1` as soon I see the NPC get in position and the little dialogue marker appears. It shows the NPC moving on the map while this happens so it's easy to see.
   - `esc2` can be used around the time the champ is less than 10% health at the Mist Warden escort. Once the Crystal Bloom champ is about 10%  the `esc3` announcement can be used.
-- 
+- **gcu** : General Camp Upgrade information. Puts out a notification that the phase has changed.
+- **cu**: Camp Upgrades categorized by location. Similar to how `bmechs` works in *sw_aio*, after typing "cu" the program will remove the two letters and wait for more text. *See key terms below*
+  - **mw** : Mist Warden Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
+    - **dis** : Branded storm escort that happens at T1 just after the camp is established.
+    - **men** : Mender escort.
+    - **tears** : Melandru Tear collection meta event. Fills a good chunk of the bar so this is a high priority event.
+    - **champ** : Champion Nature Elemental.
+      - There is usually a cull event right next to this one so when you go there go to the cull event first.
+    - **lz** : Landing Zone event.
+    - **brg** : Bridge event.
+  - **olma** : Olmakhan Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
+    - **men** : Mender Escort
+    - **cull** : Cull Event
+    - **sb** : Soulbinder collection event. Similar to collecting tears or embers.
+    - **bullesc** : Bull escort of tears that goes from Mist Warden to Olmakhan.
+    - **brg** : Brige event. The one that connects CB to Olmakhan.
+    - **dis** : Branded storm cull escort. Happens after the camp is established just after the initial escort.
+  - **cb** : Crystal Bloom camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
+    - **men** : Mender escort.
+    - **dis** : Branded storm clearing escort.
+    - **emb** : Ember collection event.
+    - **assem** : Destroying *Branded Assemblers* with embers gathered at camp.
+    - **turr** : Destroying*Branded Turrets* with embers gathered at the camp and around the camp.
+    -
