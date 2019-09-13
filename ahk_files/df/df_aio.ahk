@@ -17,6 +17,9 @@ Sends the enter key press event to active window.
 Helps with reducing hand movements.
 */
 
+
+; Make sure caps lock is off and force the setting to off in case it is.
+SetCapsLockState AlwaysOff
 ;AHK begins to listen for user input.
 Send {Enter}
 SendMode Input
@@ -37,7 +40,7 @@ SetupSquadChat(CharsToRemove){
   SetKeyDelay 250
   Send {/}
   Sleep 500
-  Send squad{Space}
+  Send d{Space}
   SetKeyDelay 0
 }
 
@@ -66,9 +69,8 @@ if (UserInput = "brg"){
   leBroadcast := "Beetle Up!"
   SquadBroadcast(leBroadcast)
   ; end Broadcast
-  ; Prep for text flow
   Send {Enter}
-  leMssg := "The map has reset{!} Let's grab some bridges before escorts start up{!} Escorts start after bridges are complete (2 mins from now)"
+  leMssg := "The map has reset{!} Let's grab some bridges{!} (Escorts spawn 2 minutes from right now)"
   SetupSquadChat(0)
   InsertText(leMssg)
   ExitApp
@@ -81,14 +83,8 @@ else if (UserInput = "esc1"){
   SquadBroadcast(leBroadcast)
   ; end broadcast
   SetupSquadChat(0)
-  ; Send WP to chat [squad moving]
-  SendRaw [&BN4LAAA=]
-  Send {Enter}
-  ; end - Prepare for next message
-  SetupSquadChat(0)
-  Sleep 2500
-  leMssg := "Escort time{!} Please only escort the group on my tag{!} We escort these one at a time so we can get max loot."
-  InsertText(leMssg)
+  ; Send WP to chat [squad moving].
+  SendInput [&BN4LAAA=] Escort time! Please only escort the group on my tag! We escort these one at a time so we can maximize the loot.`r
   ExitApp
 }
 
@@ -98,22 +94,19 @@ else if (UserInput = "esc2"){
   SquadBroadcast(leBroadcast)
   SetupSquadChat(0)
   Sleep 250
-  SendRaw [&BN4LAAA=]
-  Send {Enter}
-  SetupSquadChat(0)
-  leMssg := "Next escort is Crystal Bloom. Then we catch olma when CB camp is setup."
-  InsertText(leMssg)
+  SendInput {Raw}[&BN4LAAA=] Next escort is Crystal Bloom. Then we catch Olmakhan's escort when Crystal Bloom Camp is setup.`r
   ExitApp
 }
 
 else if (UserInput = "esc3"){
   Send {Backspace 4}
-  leMssg := "Follow me to tag the olma escort. (Take bridge South of CB camp and follow path South East)"
-  InsertText(leMssg)
-  Sleep 3200
   SetupSquadChat(0)
-  leMssg := "Next phase is camp upgrades."
+  leMssg := "Follow me to tag the Olmakhan escort. Take bridge South of Crystal Bloom camp and follow path South East"
   InsertText(leMssg)
+  Sleep 1600
+  leBroadcast := "(Upcoming Phase) - Camp Upgrades"
+  Send {Enter} ; Quick fix to deselect chat box during broadcast function.
+  SquadBroadcast(leBroadcast)
   ExitApp
 }
 
@@ -121,12 +114,12 @@ else if (UserInput = "gcu"){
   Send {Backspace 6}
   leBroadcast := "Camp Upgrade Events"
   SquadBroadcast(leBroadcast)
-  Sleep 3200
+  Sleep 1600
   SetupSquadChat(0)
-  leMssg := "Talk with scouts @ each camp to find events. Call out mender escorts when they are up."
-  InsertText(leMssg)
+  SendInput Meet me at [&BNILAAA=] for upgrade events. Once camp upgrade timer begins to count down we move to the next one. Sound good?`r
   ExitApp
 }
+
 ; Begin camp selection
 else if (UserInput = "cu"){
   SetupSquadChat(2)
@@ -135,66 +128,68 @@ else if (UserInput = "cu"){
     if (CULoc = "mw"){
       SetupSquadChat(2)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, dis,men,cull,tears,champ,lz,brg
-        ; Event Types
+      Input, EventTypeSel, V, {esc}, dis,men,cull,tears,elecull,lz,brg
+        ; Events
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
-          leMssg := "Mender escort"
-          InsertText(leMssg)
+          SendInput [&BNILAAA=] Mender escort on me.`r
           ExitApp
         }
         else if(EventTypeSel = "cull"){
           SetupSquadChat(4)
-          leMssg := "Cull event"
-          InsertText(leMssg)
+          SendInput Cull event - South of [&BM0LAAA=]`r
           ExitApp
         }
         else if(EventTypeSel = "tears"){
           SetupSquadChat(5)
-          leMssg := "Collect tears and turn into NPC @ camp"
-          InsertText(leMssg)
+          Send Input Collect [&AgHzYgEA] around Mist Warden camp and give to NPC. Locations are marked as I find them.`r
           ExitApp
         }
-        else if(EventTypeSel = "champ"){
+        else if(EventTypeSel = "elecull"){
           SetupSquadChat(5)
-          leMssg := "Champ elemental"
-          InsertText(leMssg)
+          SendInput Cull near Champion Elemental [&BN4LAAA=]. Go South from waypoint and go towards Champion Elemental`r
           ExitApp
         }
         else if(EventTypeSel = "dis"){
           SetupSquadChat(3)
-          leMssg := "Brandstorm cull escort starting on my tag"
+          leMssg := "Branded Disruption escort on my tag."
           InsertText(leMssg)
           ExitApp
         }
         else if(EventTypeSel = "lz"){
           SetupSquadChat(2)
           leMssg := "Landing Zone event. Take chopper @ camp to get to the event zone quickly"
-          InsertText(leMssg)
           ExitApp
         }
         else if(EventTypeSel = "brg"){
           SetupSquadChat(3)
-          leMssg := "Bridge rebuilding event"
-          InsertText(leMssg)
+          SendInput [&BN4LAAA=] Beetle up and head South for bridge event`r
           ExitApp
         }
     }
     else if(CULoc = "olma"){
       SetupSquadChat(4)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, dis,men,cull,sb,bullesc,brg
+      Input, EventTypeSel, V, {esc}, t1,t2,t3,men,cullnw,culls,culle,sb,bullesc,brg
         ; Event Types
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
-          leMssg := "Mender escort"
-          InsertText(leMssg)
+          SendInput [&BNELAAA=] Mender escort on me`r
           ExitApp
         }
-        else if(EventTypeSel = "cull"){
+        else if(EventTypeSel = "cullnw"){
           SetupSquadChat(4)
-          leMssg := "Cull event"
-          InsertText(leMssg)
+          SendInput [&BN0LAAA=] Cull event here.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "culle"){
+          SetupSquadChat(4)
+          SendInput [&BM4LAAA=] Cull event South of this POI.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "culls"){
+          SetupSquadChat(4)
+          SendInput [&BM8LAAA=] Cull event here.`r
           ExitApp
         }
         else if(EventTypeSel = "sb"){
@@ -211,33 +206,49 @@ else if (UserInput = "cu"){
         }
         else if(EventTypeSel = "bc"){
           SetupSquadChat(2)
-          leMssg := "Branded storm cull"
-          InsertText(leMssg)
+          SendInput [&BN8LAAA=] Branded storm cull. Bunny up rocks @ Olmakhan camp behind waypoint.`r
           ExitApp
         }
         else if(EventTypeSel = "brg"){
           SetupSquadChat(3)
-          leMssg := "Bridge rebuilding event"
+          SendInput [&BOILAAA=] Bridge event here is now up.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "t1"){
+          SetupSquadChat(3)
+          leMssg := "Brandstorm Disruption escort on my tag"
           InsertText(leMssg)
           ExitApp
+        }
+        else if(EventTypeSel = "t2"){
+          SetupSquadChat(4)
+
         }
     }
     ; Crystal Bloom upgrades
     else if(CULoc = "cb"){
       SetupSquadChat(2)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, dis,men,cull,emb,assem,bullesc,brg
+      Input, EventTypeSel, V, {esc}, dis,men,culle,culls,cullnw,emb,assem,bullesc,brg
         ; Event Types
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
-          leMssg := "Mender escort"
-          InsertText(leMssg)
+          SendInput [&BOYLAAA=] Mender escort on me.`r
           ExitApp
         }
-        else if(EventTypeSel = "cull"){
+        else if(EventTypeSel = "culle"){
           SetupSquadChat(4)
-          leMssg := "Cull event"
-          InsertText(leMssg)
+          SendInput [&BOELAAA=] Cull event here.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "culls"){
+          SetupSquadChat(4)
+          SendInput [&BNoLAAA=] Cull event directly East.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "cullnw"){
+          SetupSquadChat(4)
+          SendInput [&BNoLAAA=] Cull event directly North.`r
           ExitApp
         }
         else if(EventTypeSel = "emb"){
@@ -266,7 +277,7 @@ else if (UserInput = "cu"){
         }
         else if(EventTypeSel = "dis"){
           SetupSquadChat(3)
-          leMssg := "Branded storm cull and champ"
+          leMssg := "Brandstorm Disruption escort on my tag"
           InsertText(leMssg)
           ExitApp
         }

@@ -36,30 +36,35 @@ I'm also working on some more for Auric Basin and other big meta maps. If you wa
 - **gcu** : General Camp Upgrade information. Puts out a notification that the phase has changed.
 - **cu**: Camp Upgrades categorized by location. Similar to how `bmechs` works in *sw_aio*, after typing "cu" the program will remove the two letters and wait for more text. *See key terms below*
   - **mw** : Mist Warden Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
-    - **dis** : Branded storm escort that happens at T1 just after the camp is established.
+    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
     - **men** : Mender escort.
     - **tears** : Melandru Tear collection meta event. Fills a good chunk of the bar so this is a high priority event.
-    - **champ** : Champion Nature Elemental.
+    - **elecull** : Cull event that spawns next to the Champion Elemental.
       - There is usually a cull event right next to this one so when you go there go to the cull event first.
     - **lz** : Landing Zone event.
     - **brg** : Bridge event.
+
   - **olma** : Olmakhan Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
     - **men** : Mender Escort
     - **cull** : Cull Event
     - **sb** : Soulbinder collection event. Similar to collecting tears or embers.
     - **bullesc** : Bull escort of tears that goes from Mist Warden to Olmakhan.
     - **brg** : Brige event. The one that connects CB to Olmakhan.
-    - **dis** : Branded storm cull escort. Happens after the camp is established just after the initial escort.
+    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
+
   - **cb** : Crystal Bloom camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
     - **men** : Mender escort.
-    - **dis** : Branded storm clearing escort.
+    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
     - **emb** : Ember collection event.
     - **assem** : Destroying *Branded Assemblers* with embers gathered at camp.
-    - **turr** : Destroying*Branded Turrets* with embers gathered at the camp and around the camp.
+    - **turr** : Destroying *Branded Turrets* with embers gathered at the camp and around the camp.
     - **bullesc** : Supply pack bull of Soulbinders that goes from CB to Olmakhan.
     - **champ** : Champion Abyssal.
     - **cull** : Cull event.
     - **brg** : Bridge event just South of the camp. This is important to finish because 2 other events depend on this bridge being up.
+
 - **pre** : announcement to squad about changing phase of the meta into the pre-kralk phase. Can be modified for how you like to run your squad.
+
 - **kralk** : Sends message to squad on what percentage to hold the bosses at.
+
 - **bb** : Bonus boss round announcement. Very simple and short just to let people know to continue following for more loot.
