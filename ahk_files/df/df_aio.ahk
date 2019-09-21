@@ -94,7 +94,7 @@ else if (UserInput = "esc2"){
   SquadBroadcast(leBroadcast)
   SetupSquadChat(0)
   Sleep 250
-  SendInput {Raw}[&BN4LAAA=] Next escort is Crystal Bloom. Then we catch Olmakhan's escort when Crystal Bloom Camp is setup.`r
+  SendInput [&BN4LAAA=] Next escort is Crystal Bloom. Then we catch Olmakhan's escort when Crystal Bloom Camp is setup.`r
   ExitApp
 }
 
@@ -128,7 +128,7 @@ else if (UserInput = "cu"){
     if (CULoc = "mw"){
       SetupSquadChat(2)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, dis,men,cull,tears,elecull,lz,brg
+      Input, EventTypeSel, V, {esc}, t1,t2,t3,men,cull,elecull,brg
         ; Events
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
@@ -140,37 +140,37 @@ else if (UserInput = "cu"){
           SendInput Cull event - South of [&BM0LAAA=]`r
           ExitApp
         }
-        else if(EventTypeSel = "tears"){
-          SetupSquadChat(5)
-          Send Input Collect [&AgHzYgEA] around Mist Warden camp and give to NPC. Locations are marked as I find them.`r
+        else if(EventTypeSel = "t2"){
+          SetupSquadChat(2)
+          SendInput Collect [&AgHzYgEA] around Mist Warden camp and give to NPC. Locations are marked as I find them.`r
           ExitApp
         }
         else if(EventTypeSel = "elecull"){
-          SetupSquadChat(5)
+          SetupSquadChat(7)
           SendInput Cull near Champion Elemental [&BN4LAAA=]. Go South from waypoint and go towards Champion Elemental`r
           ExitApp
         }
-        else if(EventTypeSel = "dis"){
-          SetupSquadChat(3)
-          leMssg := "Branded Disruption escort on my tag."
+        else if(EventTypeSel = "t1"){
+          SetupSquadChat(2)
+          SendInput [&BNILAAA=] Branded Disruption escort on my tag.`r
           InsertText(leMssg)
           ExitApp
         }
-        else if(EventTypeSel = "lz"){
+        else if(EventTypeSel = "t3"){
           SetupSquadChat(2)
-          leMssg := "Landing Zone event. Take chopper @ camp to get to the event zone quickly"
+          leMssg := "Landing Zone event. Take chopper @ camp to get to the event zone quickly."
           ExitApp
         }
         else if(EventTypeSel = "brg"){
           SetupSquadChat(3)
-          SendInput [&BN4LAAA=] Beetle up and head South for bridge event`r
+          SendInput [&BN4LAAA=] Beetle up and head South for bridge event.`r
           ExitApp
         }
     }
     else if(CULoc = "olma"){
       SetupSquadChat(4)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, t1,t2,t3,men,cullnw,culls,culle,sb,bullesc,brg
+      Input, EventTypeSel, V, {esc}, t1,t2,t3,men,cullnw,culls,culle,bullesc,brg
         ; Event Types
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
@@ -178,24 +178,23 @@ else if (UserInput = "cu"){
           ExitApp
         }
         else if(EventTypeSel = "cullnw"){
-          SetupSquadChat(4)
+          SetupSquadChat(6)
           SendInput [&BN0LAAA=] Cull event here.`r
           ExitApp
         }
         else if(EventTypeSel = "culle"){
-          SetupSquadChat(4)
+          SetupSquadChat(5)
           SendInput [&BM4LAAA=] Cull event South of this POI.`r
           ExitApp
         }
         else if(EventTypeSel = "culls"){
-          SetupSquadChat(4)
+          SetupSquadChat(5)
           SendInput [&BM8LAAA=] Cull event here.`r
           ExitApp
         }
-        else if(EventTypeSel = "sb"){
+        else if(EventTypeSel = "t2"){
           SetupSquadChat(2)
-          leMssg := "Collect soulbinders and turn into NPC @ camp"
-          InsertText(leMssg)
+          SendInput Collect [&AgHXYQEA] around Olmakhan camp and give to NPC. Locations are marked as I find them.`r
           ExitApp
         }
         else if(EventTypeSel = "bullesc"){
@@ -215,21 +214,26 @@ else if (UserInput = "cu"){
           ExitApp
         }
         else if(EventTypeSel = "t1"){
-          SetupSquadChat(3)
-          leMssg := "Brandstorm Disruption escort on my tag"
-          InsertText(leMssg)
+          SetupSquadChat(2)
+          SendInput [&BMsLAAA=] Brandstorm Disruption escort on my tag.`r
           ExitApp
         }
-        else if(EventTypeSel = "t2"){
+        else if(EventTypeSel = "t3p1"){
           SetupSquadChat(4)
-
+          SendInput {Raw}[&BNELAAA=] Use ground mounts and Crystal Spear special action [&BsvYAAA=] on those speedy branded. Branded have [&BuOpAAA=] to make them quick. Repeat when they're 50`% dead.`r
+          ExitApp
+        }
+        else if(EventTypeSel = "t3p2"){
+          SetupSquadChat(4)
+          SendInput [&BNELAAA=] Use air mounts and Crystal Spear special action [&BsvYAAA=] on Branded Debris floating in the sky.`r
+          ExitApp
         }
     }
     ; Crystal Bloom upgrades
     else if(CULoc = "cb"){
       SetupSquadChat(2)
       ; 3rd levl nested Input for selecting event type
-      Input, EventTypeSel, V, {esc}, dis,men,culle,culls,cullnw,emb,assem,bullesc,brg
+      Input, EventTypeSel, V, {esc}, t1,men,culle,culls,cullnw,t2,t3p1,t3p2,bullesc,brg
         ; Event Types
         if(EventTypeSel = "men"){
           SetupSquadChat(3)
@@ -251,40 +255,35 @@ else if (UserInput = "cu"){
           SendInput [&BNoLAAA=] Cull event directly North.`r
           ExitApp
         }
-        else if(EventTypeSel = "emb"){
+        else if(EventTypeSel = "t2"){
           SetupSquadChat(3)
-          leMssg := "Look for embers and gather them. Turn into NPC @ camp"
-          InsertText(leMssg)
+          Send Input Collect [&AgEqYwEA] around Mist Warden camp and give to NPC. Locations are marked as I find them.`r
           ExitApp
         }
-        else if(EventTypeSel = "assem"){
+        else if(EventTypeSel = "t3p1"){
           SetupSquadChat(5)
-          leMssg := "Grab embers @ camp. Throw @ Cystal Assemblers.They look like large Branded rocks"
-          InsertText(leMssg)
+          SendInput Grab [&AgEqYwEA] @ camp. [&BoHZAAA=] @ Cystal Assemblers. They look like large Branded rocks with pointy tops.`r
           ExitApp
         }
-        else if(EventTypeSel = "turr"){
+        else if(EventTypeSel = "t3p2"){
           SetupSquadChat(4)
-          leMssg := "Grab embers @ camp. Throw @ Branded Turrets. They are the tall, purple rocks"
+          SendInput Grab [&AgEqYwEA] @ camp. [&BoHZAAA=] @ Crystal Turrets. They are the tall, purple rocks"
           InsertText(leMssg)
           ExitApp
         }
         else if(EventTypeSel = "brg"){
           SetupSquadChat(3)
-          leMssg := "Bridge rebuilding event"
-          InsertText(leMssg)
+          SendInput [&BOILAAA=] Bridge event here is now up.`r
           ExitApp
         }
-        else if(EventTypeSel = "dis"){
+        else if(EventTypeSel = "t1"){
           SetupSquadChat(3)
-          leMssg := "Brandstorm Disruption escort on my tag"
-          InsertText(leMssg)
+          SendInput [&BOYLAAA=] Brandstorm Disruption escort on my tag.`r
           ExitApp
         }
         else if(EventTypeSel = "champ"){
           SetupSquadChat(5)
-          leMssg := "Champ abyssal"
-          InsertText(leMssg)
+          SendInput [&BNwLAAA=] Champ abyssal. Go to waypoint and follow jackal portal to the top of the rock.`r
           ExitApp
         }
         else if(EventTypeSel = "bullesc"){
@@ -298,14 +297,16 @@ else if (UserInput = "cu"){
 
 else if (UserInput = "pre"){
   SetupSquadChat(3)
-  leMssg := "Kralk pre events are starting. If one finishes before the other go bring the calvary. The faster we progress, the more loot we can get in the long run :) Let's get rich{!}"
-  InsertText(leMssg)
+  SendInput You have all been placed in separate groups. Check the group you're in and go to the matching location.
+  Sleep 500
+  SendInput Subgroup 1 - [&BNILAAA=] | Subgroup 2 - [&BOYLAAA=] | Subgroup 3 - [&BN4LAAA=]`r
   ExitApp
 }
 
 else if (UserInput = "kralk"){
   SetupSquadChat(5)
-  leBroadcast := "Remember, all the bosses must be killed together like Octovine{!} Hold at 25% and wait for my call to burn{!}"
+  SendInput All bosses must die within 30 seconds of each other.
+  leBroadcast := "Hold at 25% and wait for my call to burn{!}"
   SquadBroadcast(leBroadcast)
   ExitApp
 }

@@ -36,25 +36,25 @@ I'm also working on some more for Auric Basin and other big meta maps. If you wa
 - **gcu** : General Camp Upgrade information. Puts out a notification that the phase has changed.
 - **cu**: Camp Upgrades categorized by location. Similar to how `bmechs` works in *sw_aio*, after typing "cu" the program will remove the two letters and wait for more text. *See key terms below*
   - **mw** : Mist Warden Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
-    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
+    - **t1** : Branded Disruption escort that happens at T1 just after the camp is established.
     - **men** : Mender escort.
-    - **tears** : Melandru Tear collection meta event. Fills a good chunk of the bar so this is a high priority event.
+    - **t2** : Melandru Tear collection meta event. Fills a good chunk of the bar so this is a high priority event.
     - **elecull** : Cull event that spawns next to the Champion Elemental.
       - There is usually a cull event right next to this one so when you go there go to the cull event first.
-    - **lz** : Landing Zone event.
+    - **t3** : Landing Zone event.
     - **brg** : Bridge event.
 
   - **olma** : Olmakhan Camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
     - **men** : Mender Escort
     - **cull** : Cull Event
-    - **sb** : Soulbinder collection event. Similar to collecting tears or embers.
+    - **t2** : Soulbinder collection event. Similar to collecting tears or embers.
     - **bullesc** : Bull escort of tears that goes from Mist Warden to Olmakhan.
     - **brg** : Brige event. The one that connects CB to Olmakhan.
-    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
-
+    - **t1** : Branded Disruption escort that happens at T1 just after the camp is established.
+    - **t3p1** : 
   - **cb** : Crystal Bloom camp. Program will clear the chat again and wait for a prompt to specify which event is up. *See key terms below*
     - **men** : Mender escort.
-    - **dis** : Branded Disruption escort that happens at T1 just after the camp is established.
+    - **t1** : Branded Disruption escort that happens at T1 just after the camp is established.
     - **emb** : Ember collection event.
     - **assem** : Destroying *Branded Assemblers* with embers gathered at camp.
     - **turr** : Destroying *Branded Turrets* with embers gathered at the camp and around the camp.
